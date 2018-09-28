@@ -28,7 +28,7 @@ public class BaseJogo {
             System.out.println("Escolha um número disponível");
             int numeroEscolhido = scanner.nextInt();
             
-            if (!entradaInvalida(numeroEscolhido)) continue; 
+            if (entradaInvalida(numeroEscolhido)) continue; 
             
             quadrantes[numeroEscolhido] = jogadorAtivo;
             
@@ -41,13 +41,13 @@ public class BaseJogo {
     private boolean entradaInvalida(int numeroEscolhido) {
         if (numeroEscolhido > 8 && numeroEscolhido < 0) {
             System.out.println("Entrada inválida. Escoha um número disponível");
-            return false;
+            return true;
         }
         if (quadrantes[numeroEscolhido] == 'X' || quadrantes[numeroEscolhido] == 'O') {
             System.out.println("Local não disponível. Escolha um local válido");
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
     
     public boolean jogoAcabou() {
@@ -121,9 +121,8 @@ public class BaseJogo {
         Scanner scanner = new Scanner(System.in);
         
         jogador1 = scanner.next().toUpperCase().charAt(0);
-        if ((jogador1 != 'x' && jogador1 == 'o') ||
-                (jogador1 != 'o' && jogador1 == 'x')) {
-            System.out.println("Esolha apenas entre X ou O");
+        if (jogador1 != 'X' && jogador1 != 'O') {
+            System.out.println("Escolha apenas entre X ou O");
             escolheEntreXouO();
         }
         jogador2 = (jogador1 == 'X' ? 'O' : 'X');
