@@ -31,16 +31,16 @@ public class BaseJogo {
         
     }
 
-	private void defineJogadorDaVez(int x) {
-		if (x%2 == 0) {
-		    jogadorAtivo = jogador1;
-		    System.out.println("Vez de jogador 1");
-		}
-		else {
-		    jogadorAtivo = jogador2;
-		    System.out.println("Vez de jogador 2");
-		}
-	}
+    private void defineJogadorDaVez(int x) {
+        if (x%2 == 0) {
+            jogadorAtivo = jogador1;
+            System.out.println("Vez de jogador 1");
+        }
+        else {
+            jogadorAtivo = jogador2;
+            System.out.println("Vez de jogador 2");
+        }
+    }
     
     private boolean entradaInvalida(int numeroEscolhido) {
         if (numeroEscolhido > 8 && numeroEscolhido < 0) {
