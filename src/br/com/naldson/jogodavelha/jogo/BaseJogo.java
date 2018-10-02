@@ -63,13 +63,15 @@ public class BaseJogo {
     }
 
     private boolean semVencedor() {
-        for (int i = 0; i < quadrantes.length; i++) { 
-            if (quadrantes[i] != 'X' || quadrantes[i] != 'O') {
-                 return false;
-            }
+        int x=0;
+        for (int i = 0; i < quadrantes.length; i++) {            
+    	    if (quadrantes[i] == 'X' || quadrantes[i] == 'O') x++;
+    	    if (x==9) {
+    		    System.out.println("O jogo acabou sem vencedores!");
+    		    return true;
+    	    }
         }
-        System.out.println("O jogo acabou sem vencedores");
-        return true;
+        return false;
     }
 
     private boolean temVencedorVertical() {
